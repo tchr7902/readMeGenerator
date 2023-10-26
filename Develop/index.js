@@ -17,11 +17,6 @@ const questions = [
     },
     {
       type: 'input',
-      name: 'tableOfContents',
-      message: 'What will the table of contents be?',
-    },
-    {
-      type: 'input',
       name: 'installation',
       message: (answers) => `What is the installation of ${answers.title}?`,
     },
@@ -53,8 +48,13 @@ const questions = [
     {
       type: 'input',
       name: 'faq',
-      message: 'Are there any frequently asked questions for the project?',
+      message: 'What is your GitHub username so any users can ask questions?',
     },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'And your email?',
+      },
   ];
 
 // TODO: Create a function to write README file
