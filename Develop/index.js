@@ -31,9 +31,14 @@ const questions = [
       message: (answers) => `What is the usage of ${answers.title}?`,
     },
     {
-      type: 'input',
+      type: 'checkbox',
       name: 'license',
-      message: 'What is the license used?',
+      message: 'Please choose a license',
+      choices: [ 
+        { name: 'MIT License', value: 'MIT License' },
+        { name: 'Apache 2.0', value: 'Apache 2.0' },
+        { name: 'None', value: '' } 
+    ]
     },
     {
       type: 'input',
@@ -58,7 +63,7 @@ function writeToFile(fileName, data) {
         if(err) {
             console.log(err)
         } else {
-            console.log(`${filename} successfully generated!`)
+            console.log(`${fileName} has been successfully generated!`)
         }
     });
 }
@@ -67,7 +72,6 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then((answers) => {
         const readmeContent = generateMarkdown(answers);
-        console.log(readmeContent)
 
         writeToFile('README.md', readmeContent)
     })
